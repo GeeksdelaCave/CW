@@ -5,10 +5,14 @@
 ** Login   <mongep@epitech.net>
 **
 ** Started on  Mon Mar 16 13:00:50 2015 Monge Pierre
-** Last update Mon Mar 16 15:45:31 2015 Monge Pierre
+** Last update Mon Mar 16 16:50:28 2015 Monge Pierre
 */
 
 #include		"corewar_vm.h"
+
+/*
+** Tuto for use the binary
+*/
 
 int			vm_tuto(char *error)
 {
@@ -31,9 +35,26 @@ int			vm_tuto(char *error)
   return (0);
 }
 
+t_vm			*vm_data_getter()
+{
+  static	t_vm	vm;
+
+  return (&vm);
+}
+
 int			main(int ac, char **av)
 {
+  t_vm			*vm;
+
   if (ac <= 2)
     return (vm_tuto(""));
+  vm = vm_data_getter();
+  if ((vm = vm_data_init(vm)) == NULL)
+    return (vm_error("vm: Not enought memory to load vm\n"));
+  while (vm->nbr_champ > 1)
+    {
+      my_printf("%i\n", vm->nbr_champ);
+      vm->nbr_champ -= 1;
+    }
   return (0);
 }

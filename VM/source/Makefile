@@ -5,10 +5,11 @@
 ## Login   <mongep@epitech.net>
 ## 
 ## Started on  Mon Mar 16 11:08:27 2015 Monge Pierre
-## Last update Mon Mar 16 14:20:12 2015 Monge Pierre
+## Last update Mon Mar 16 16:46:06 2015 Monge Pierre
 ##
 
 SRC	= init/vm_main.c		\
+	  init/vm_struct_init.c		\
 	  instructions/vm_live.c	\
 	  instructions/vm_ld.c		\
 	  instructions/vm_st.c		\
@@ -25,6 +26,7 @@ SRC	= init/vm_main.c		\
 	  instructions/vm_lldi.c	\
 	  instructions/vm_lfork.c	\
 	  instructions/vm_aff.c		\
+	  error/vm_error_exit.c		\
 
 OBJ	= $(SRC:.c=.o)
 

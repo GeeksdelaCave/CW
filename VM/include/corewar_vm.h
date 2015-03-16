@@ -5,7 +5,7 @@
 ** Login   <mongep@epitech.net>
 **
 ** Started on  Mon Mar 16 11:34:01 2015 Monge Pierre
-** Last update Mon Mar 16 14:38:24 2015 Monge Pierre
+** Last update Mon Mar 16 16:38:55 2015 Monge Pierre
 */
 
 #ifndef				__COREWAR_VM_H_
@@ -48,6 +48,7 @@ typedef		struct		s_champ
   char				*name;
   int				id;
 
+  int				live_before_die;
   struct	s_champ		*next;
 }				t_champ;
 
@@ -57,6 +58,10 @@ typedef		struct		s_champ
 
 typedef		struct		s_vm
 {
+  int				cycle;
+  int				live_done;
+
+  int				nbr_champ;
   struct	s_champ		*champ_first;
 }				t_vm;
 
@@ -84,5 +89,23 @@ int				vm_instructions_aff();
 /*
 ** End instructions
 */
+
+/*
+** Static struct (Is like a global struct)
+*/
+
+t_vm				*vm_data_getter();
+
+/*
+** Func for parsing arguments and init vm
+*/
+
+t_vm				*vm_data_init(struct s_vm *);
+
+/*
+** FUNC OF ERROR
+*/
+
+int				vm_error(char *);
 
 #endif				/* !__COREWAR_VM_H_ */
