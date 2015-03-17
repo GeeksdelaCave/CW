@@ -5,7 +5,7 @@
 ** Login   <mongep@epitech.net>
 **
 ** Started on  Mon Mar 16 16:24:26 2015 Monge Pierre
-** Last update Mon Mar 16 16:45:45 2015 Monge Pierre
+** Last update Tue Mar 17 11:54:39 2015 Monge Pierre
 */
 
 #include			"corewar_vm.h"
@@ -17,4 +17,5 @@
 t_vm				*vm_data_init(t_vm *vm)
 {
   vm->nbr_champ = 4;
+  return (vm);
 }
