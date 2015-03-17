@@ -5,7 +5,7 @@
 ** Login   <mongep@epitech.net>
 **
 ** Started on  Mon Mar 16 11:34:01 2015 Monge Pierre
-** Last update Tue Mar 17 17:26:54 2015 Monge Pierre
+** Last update Tue Mar 17 18:20:46 2015 Monge Pierre
 */
 
 #ifndef				__COREWAR_VM_H_
@@ -79,11 +79,20 @@ typedef				int (*vm_instr)(t_vm *, t_champ *);
 ** Struct params
 */
 
+typedef				enum
+  {
+    TYPE_IND,
+    TYPE_DIR,
+    TYPE_REG,
+    NONE
+  }				vm_type;
+
 typedef		struct		s_params
 {
-  int				type_1;
-  int				type_2;
-  int				type_3;
+  vm_type	      		type_1;
+  vm_type     			type_2;
+  vm_type			type_3;
+
   int				param_1;
   int				param_2;
   int				param_3;
