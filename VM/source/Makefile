@@ -5,7 +5,7 @@
 ## Login   <mongep@epitech.net>
 ## 
 ## Started on  Mon Mar 16 11:08:27 2015 Monge Pierre
-## Last update Mon Mar 16 16:46:06 2015 Monge Pierre
+## Last update Tue Mar 17 15:35:43 2015 Monge Pierre
 ##
 
 SRC	= init/vm_main.c		\
@@ -27,6 +27,8 @@ SRC	= init/vm_main.c		\
 	  instructions/vm_lfork.c	\
 	  instructions/vm_aff.c		\
 	  error/vm_error_exit.c		\
+	  convert/vm_convert.c		\
+	  action/vm_action.c		\
 
 OBJ	= $(SRC:.c=.o)
 

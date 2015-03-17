@@ -5,7 +5,7 @@
 ** Login   <mongep@epitech.net>
 **
 ** Started on  Mon Mar 16 11:42:10 2015 Monge Pierre
-** Last update Mon Mar 16 11:43:29 2015 Monge Pierre
+** Last update Tue Mar 17 14:19:37 2015 Monge Pierre
 */
 
 #ifndef		COREWAR_VM_LIB_H_
@@ -34,5 +34,6 @@ char		*my_strdup(char *str);
 char		**my_str_to_wordtab(char *, char, int);
 int		cerr(char *);
 void		cerr_void(char *);
+char		*my_revstr(char *);
 
 #endif		/* !COREWAR_VM_LIB_H_ */

@@ -5,7 +5,7 @@
 ## Login   <mongep@epitech.net>
 ## 
 ## Started on  Mon Mar 16 11:16:10 2015 Monge Pierre
-## Last update Mon Mar 16 12:01:21 2015 Monge Pierre
+## Last update Tue Mar 17 14:22:36 2015 Monge Pierre
 ##
 
 SRC	= my_getnbr.c		\
@@ -26,6 +26,7 @@ SRC	= my_getnbr.c		\
 	  my_strdup.c		\
 	  cerr.c		\
 	  my_putstr.c		\
+	  my_revstr.c		\
 
 OBJ	= $(SRC:.c=.o)
 

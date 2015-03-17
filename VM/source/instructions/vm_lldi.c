@@ -5,12 +5,12 @@
 ** Login   <mongep@epitech.net>
 **
 ** Started on  Mon Mar 16 14:16:36 2015 Monge Pierre
-** Last update Mon Mar 16 14:16:53 2015 Monge Pierre
+** Last update Tue Mar 17 16:53:21 2015 Monge Pierre
 */
 
 #include			"corewar_vm.h"
 
-int				vm_instruction_lldi()
+int				vm_instruction_lldi(t_vm *vm, t_champ *champ)
 {
   return (0);
 }

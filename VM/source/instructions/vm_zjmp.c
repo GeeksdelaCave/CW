@@ -5,12 +5,12 @@
 ** Login   <mongep@epitech.net>
 **
 ** Started on  Mon Mar 16 13:59:57 2015 Monge Pierre
-** Last update Mon Mar 16 14:13:31 2015 Monge Pierre
+** Last update Tue Mar 17 16:53:17 2015 Monge Pierre
 */
 
 #include		"corewar_vm.h"
 
-int			vm_instruction_zjmp()
+int			vm_instruction_zjmp(t_vm *vm, t_champ *champ)
 {
   return (0);
 }

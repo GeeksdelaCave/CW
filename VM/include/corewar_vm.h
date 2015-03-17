@@ -5,11 +5,13 @@
 ** Login   <mongep@epitech.net>
 **
 ** Started on  Mon Mar 16 11:34:01 2015 Monge Pierre
-** Last update Tue Mar 17 12:02:41 2015 Monge Pierre
+** Last update Tue Mar 17 17:26:54 2015 Monge Pierre
 */
 
 #ifndef				__COREWAR_VM_H_
 # define			__COREWAR_VM_H_5A5A5A
+
+#include			<stdlib.h>
 
 #include			"corewar_vm_lib.h"
 
@@ -40,6 +42,8 @@
 # define			COMMENT_LENGHT		2048
 # define			NAME_LENGHT		128
 
+# define			NBR_INSTRUCTION		16
+
 # define			MAGIC_NUMBER		0xea83f3
 
 /*
@@ -57,6 +61,7 @@ typedef		struct		s_champ
 
   char				reg[(REG_SIZE * REG_NUMBER) + 1];
   int				carry;
+  int				delay;
 
   int				live_before_die;
   struct	s_champ		*next;
@@ -66,8 +71,27 @@ typedef		struct		s_champ
 ** general struct of vm
 */
 
-typedef		struct		s_vm
+typedef		struct s_vm	t_vm;
+
+typedef				int (*vm_instr)(t_vm *, t_champ *);
+
+/*
+** Struct params
+*/
+
+typedef		struct		s_params
 {
+  int				type_1;
+  int				type_2;
+  int				type_3;
+  int				param_1;
+  int				param_2;
+  int				param_3;
+}				t_params;
+
+struct				s_vm
+{
+  vm_instr			func[NBR_INSTRUCTION + 1];
   char				arene[MEM_SIZE + 1];
 
   int				cycle;
@@ -75,32 +99,44 @@ typedef		struct		s_vm
 
   int				nbr_champ;
   struct	s_champ		*champ_first;
-}				t_vm;
+};
 
 /*
 ** Vm instructions (parametres surement à changer)
 */
 
-int				vm_instructions_live();
-int				vm_instructions_ld();
-int				vm_instructions_st();
-int				vm_instructions_add();
-int				vm_instructions_sub();
-int				vm_instructions_and();
-int				vm_instructions_or();
-int				vm_instructions_xor();
-int				vm_instructions_zjmp();
-int				vm_instructions_ldi();
-int				vm_instructions_sti();
-int				vm_instructions_fork();
-int				vm_instructions_lld();
-int				vm_instructions_lldi();
-int				vm_instructions_lfork();
-int				vm_instructions_aff();
+int				vm_instruction_live(t_vm *, t_champ *);
+int				vm_instruction_ld(t_vm *, t_champ *);
+int				vm_instruction_st(t_vm *, t_champ *);
+int				vm_instruction_add(t_vm *, t_champ *);
+int				vm_instruction_sub(t_vm *, t_champ *);
+int				vm_instruction_and(t_vm *, t_champ *);
+int				vm_instruction_or(t_vm *, t_champ *);
+int				vm_instruction_xor(t_vm *, t_champ *);
+int				vm_instruction_zjmp(t_vm *, t_champ *);
+int				vm_instruction_ldi(t_vm *, t_champ *);
+int				vm_instruction_sti(t_vm *, t_champ *);
+int				vm_instruction_fork(t_vm *, t_champ *);
+int				vm_instruction_lld(t_vm *, t_champ *);
+int				vm_instruction_lldi(t_vm *, t_champ *);
+int				vm_instruction_lfork(t_vm *, t_champ *);
+int				vm_instruction_aff(t_vm *, t_champ *);
 
 /*
 ** End instructions
 */
+
+/*
+** ACTION VM
+*/
+
+t_vm				*vm_action(t_vm *);
+
+/*
+** Convert func
+*/
+
+char				*vm_convert(char *, char *, char *);
 
 /*
 ** Static struct (Is like a global struct)
@@ -112,7 +148,7 @@ t_vm				*vm_data_getter();
 ** Func for parsing arguments and init vm
 */
 
-t_vm				*vm_data_init(struct s_vm *);
+t_vm				*vm_data_init(struct s_vm *, char **);
 
 /*
 ** FUNC OF ERROR

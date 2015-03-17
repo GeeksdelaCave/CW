@@ -5,14 +5,14 @@
 ** Login   <mongep@epitech.net>
 **
 ** Started on  Mon Mar 16 16:21:43 2015 Monge Pierre
-** Last update Mon Mar 16 16:22:50 2015 Monge Pierre
+** Last update Tue Mar 17 14:18:17 2015 Monge Pierre
 */
 
 #include			"corewar_vm.h"
 
 /*
 ** Output error '2' to return (-1);
-/
+*/
 
 int				vm_error(char *error)
 {
