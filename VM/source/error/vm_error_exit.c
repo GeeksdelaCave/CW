@@ -10,6 +10,10 @@
 
 #include			"corewar_vm.h"
 
+/*
+** Output error '2' to return (-1);
+/
+
 int				vm_error(char *error)
 {
   if (error == NULL)
