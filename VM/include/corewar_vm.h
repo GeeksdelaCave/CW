@@ -5,7 +5,7 @@
 ** Login   <mongep@epitech.net>
 **
 ** Started on  Mon Mar 16 11:34:01 2015 Monge Pierre
-** Last update Tue Mar 17 10:02:08 2015 Monge Pierre
+** Last update Tue Mar 17 12:02:41 2015 Monge Pierre
 */
 
 #ifndef				__COREWAR_VM_H_
@@ -55,7 +55,8 @@ typedef		struct		s_champ
   char				name[NAME_LENGHT + 1];
   int				id;
 
-  char				register[REG_SIZE * REG_NUMBER + 1];
+  char				reg[(REG_SIZE * REG_NUMBER) + 1];
+  int				carry;
 
   int				live_before_die;
   struct	s_champ		*next;
