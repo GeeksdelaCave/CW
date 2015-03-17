@@ -5,11 +5,11 @@
 ** Login   <mongep@epitech.net>
 **
 ** Started on  Mon Mar 16 11:34:01 2015 Monge Pierre
-** Last update Mon Mar 16 16:38:55 2015 Monge Pierre
+** Last update Tue Mar 17 10:02:08 2015 Monge Pierre
 */
 
 #ifndef				__COREWAR_VM_H_
-# define			__COREWAR_VM_H_
+# define			__COREWAR_VM_H_5A5A5A
 
 #include			"corewar_vm_lib.h"
 
@@ -38,15 +38,24 @@
 
 # define			PROG_NAME_LENGHT	128
 # define			COMMENT_LENGHT		2048
+# define			NAME_LENGHT		128
+
+# define			MAGIC_NUMBER		0xea83f3
 
 /*
 ** struct of a Champ
+** J'ai longtemps réflechi et je pense que les registres pourraient être mis en
+** char * avec 16 registres * 4 octets chacun soit 16 * 4 char + 1 pour un /0 de
+** fin, il y a possibilité aussi de faire un char ** meme si je trouve ça moins
+** pratique à use et plus long à initialisé !
 */
 
 typedef		struct		s_champ
 {
-  char				*name;
+  char				name[NAME_LENGHT + 1];
   int				id;
+
+  char				register[REG_SIZE * REG_NUMBER + 1];
 
   int				live_before_die;
   struct	s_champ		*next;
@@ -58,6 +67,8 @@ typedef		struct		s_champ
 
 typedef		struct		s_vm
 {
+  char				arene[MEM_SIZE + 1];
+
   int				cycle;
   int				live_done;
 
@@ -66,7 +77,7 @@ typedef		struct		s_vm
 }				t_vm;
 
 /*
-** Vm instructions
+** Vm instructions (parametres surement à changer)
 */
 
 int				vm_instructions_live();
