@@ -5,13 +5,15 @@
 ** Login   <mongep@epitech.net>
 **
 ** Started on  Mon Mar 16 11:34:01 2015 Monge Pierre
-** Last update Tue Mar 17 18:20:46 2015 Monge Pierre
+** Last update Wed Mar 18 17:07:31 2015 Monge Pierre
 */
 
 #ifndef				__COREWAR_VM_H_
 # define			__COREWAR_VM_H_5A5A5A
 
 #include			<stdlib.h>
+#include			<sys/stat.h>
+#include			<fcntl.h>
 
 #include			"corewar_vm_lib.h"
 
@@ -47,6 +49,19 @@
 # define			MAGIC_NUMBER		0xea83f3
 
 /*
+** shortcut
+*/
+
+# define	IS_COR(x)	(my_strlen(args[x]) > 4 &&		 \
+				args[x][my_strlen(args[x]) - 1] == 'r' &&\
+				args[x][my_strlen(args[x]) - 2] == 'o' &&\
+				args[x][my_strlen(args[x]) - 3] == 'c' &&\
+				args[x][my_strlen(args[x]) - 4] == '.')
+
+# define	IS_OPT(x)	(my_strlen(args[x]) > 2 &&		 \
+				 args[x][0] == '-')
+
+/*
 ** struct of a Champ
 ** J'ai longtemps réflechi et je pense que les registres pourraient être mis en
 ** char * avec 16 registres * 4 octets chacun soit 16 * 4 char + 1 pour un /0 de
@@ -59,7 +74,9 @@ typedef		struct		s_champ
   char				name[NAME_LENGHT + 1];
   int				id;
 
-  char				reg[(REG_SIZE * REG_NUMBER) + 1];
+  char				*data;
+
+  int				reg[REG_NUMBER];
   int				carry;
   int				delay;
 
@@ -68,7 +85,7 @@ typedef		struct		s_champ
 }				t_champ;
 
 /*
-** general struct of vm
+** general struct of vm typedef t_vm refer to s_vm
 */
 
 typedef		struct s_vm	t_vm;
@@ -107,6 +124,8 @@ struct				s_vm
   int				live_done;
 
   int				nbr_champ;
+
+  t_params			params;
   struct	s_champ		*champ_first;
 };
 
@@ -136,10 +155,11 @@ int				vm_instruction_aff(t_vm *, t_champ *);
 */
 
 /*
-** ACTION VM
+** ACTION VM OR REG
 */
 
 t_vm				*vm_action(t_vm *);
+void				vm_reg_set(int, int, t_champ *);
 
 /*
 ** Convert func
@@ -158,6 +178,7 @@ t_vm				*vm_data_getter();
 */
 
 t_vm				*vm_data_init(struct s_vm *, char **);
+int				vm_create_champ(t_vm *, char *);
 
 /*
 ** FUNC OF ERROR
