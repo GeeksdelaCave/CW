@@ -5,7 +5,7 @@
 ## Login   <lafon_l@epitech.net>
 ## 
 ## Started on  Thu Mar 19 11:18:20 2015 leo lzfon
-## Last update Thu Mar 19 19:31:43 2015 leo lzfon
+## Last update Thu Mar 19 22:33:50 2015 Florian Huet
 ##
 
 CC		= cc
@@ -20,7 +20,7 @@ SRC		= asm.c \
 
 OBJ		= $(SRC:.c=.o)
 
-CFLAGS		= -g -I./ -W -Wall -Wextra
+CFLAGS		= -g -I./include/ -W -Wall -Wextra
 
 $(NAME):	$(OBJ)
 		$(CC) $(OBJ) -o $(NAME)
