@@ -5,7 +5,7 @@
 ** Login   <mongep@epitech.net>
 **
 ** Started on  Mon Mar 16 11:34:01 2015 Monge Pierre
-** Last update Wed Mar 18 17:07:31 2015 Monge Pierre
+** Last update Thu Mar 19 12:22:33 2015 Monge Pierre
 */
 
 #ifndef				__COREWAR_VM_H_
@@ -61,6 +61,8 @@
 # define	IS_OPT(x)	(my_strlen(args[x]) > 2 &&		 \
 				 args[x][0] == '-')
 
+# define	RG(x)		champ->reg[x]
+
 /*
 ** struct of a Champ
 ** J'ai longtemps réflechi et je pense que les registres pourraient être mis en
@@ -72,7 +74,6 @@
 typedef		struct		s_champ
 {
   char				name[NAME_LENGHT + 1];
-  int				id;
 
   char				*data;
 
@@ -125,7 +126,7 @@ struct				s_vm
 
   int				nbr_champ;
 
-  t_params			params;
+  t_params			param;
   struct	s_champ		*champ_first;
 };
 
