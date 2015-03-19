@@ -5,7 +5,7 @@
 ## Login   <lafon_l@epitech.net>
 ## 
 ## Started on  Thu Mar 19 11:18:20 2015 leo lzfon
-## Last update Thu Mar 19 12:01:05 2015 leo lzfon
+## Last update Thu Mar 19 19:31:43 2015 leo lzfon
 ##
 
 CC		= cc
@@ -15,7 +15,8 @@ RM		= rm -f
 NAME		= asm
 
 SRC		= asm.c \
-		  generic.c 
+		  generic.c \
+		  error.c
 
 OBJ		= $(SRC:.c=.o)
 
