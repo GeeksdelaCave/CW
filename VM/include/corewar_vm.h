@@ -5,11 +5,11 @@
 ** Login   <mongep@epitech.net>
 **
 ** Started on  Mon Mar 16 11:34:01 2015 Monge Pierre
-** Last update Thu Mar 19 12:22:33 2015 Monge Pierre
+** Last update Mon Mar 23 11:57:23 2015 Monge Pierre
 */
 
 #ifndef				__COREWAR_VM_H_
-# define			__COREWAR_VM_H_5A5A5A
+# define			__COREWAR_VM_H_
 
 #include			<stdlib.h>
 #include			<sys/stat.h>
@@ -40,9 +40,9 @@
 # define			CYCLE_DELTA		5
 # define			NBR_LIVE		40
 
-# define			PROG_NAME_LENGHT	128
-# define			COMMENT_LENGHT		2048
-# define			NAME_LENGHT		128
+# define			PROG_NAME_LENGTH	128
+# define			COMMENT_LENGTH		2048
+# define			NAME_LENGTH		128
 
 # define			NBR_INSTRUCTION		16
 
@@ -64,16 +64,12 @@
 # define	RG(x)		champ->reg[x]
 
 /*
-** struct of a Champ
-** J'ai longtemps réflechi et je pense que les registres pourraient être mis en
-** char * avec 16 registres * 4 octets chacun soit 16 * 4 char + 1 pour un /0 de
-** fin, il y a possibilité aussi de faire un char ** meme si je trouve ça moins
-** pratique à use et plus long à initialisé !
+** champ struct
 */
 
 typedef		struct		s_champ
 {
-  char				name[NAME_LENGHT + 1];
+  char				name[NAME_LENGTH + 1];
 
   char				*data;
 
