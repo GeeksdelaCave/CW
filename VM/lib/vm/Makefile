@@ -5,7 +5,7 @@
 ## Login   <mongep@epitech.net>
 ## 
 ## Started on  Mon Mar 16 11:16:10 2015 Monge Pierre
-## Last update Tue Mar 17 14:22:36 2015 Monge Pierre
+## Last update Mon Mar 23 11:44:14 2015 johann gangai
 ##
 
 SRC	= my_getnbr.c		\
@@ -40,7 +40,7 @@ RM	= rm -f
 
 CP	= cp
 
-CFLAGS	=  -I../../include/ -I./
+CFLAGS	=  -I../../includes/ -I./
 
 DIR_LIB	= ../
 
