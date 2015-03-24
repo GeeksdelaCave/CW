@@ -5,7 +5,7 @@
 ## Login   <mongep@epitech.net>
 ## 
 ## Started on  Mon Mar 16 11:08:27 2015 Monge Pierre
-## Last update Mon Mar 23 11:40:57 2015 johann gangai
+## Last update Tue Mar 24 18:18:28 2015 johann gangai
 ##
 
 SRC_INI	= 	vm_main.c		\
@@ -44,17 +44,17 @@ OBJ	= 	$(addprefix src/instructions/, $(SRC_INS:.c=.o))	\
 
 NAME	= 	corewar
 
-LIBS	= 	-L./lib/ -lcorewar_vm
+LIBS	= 	-L./lib/vm -lcorewar_vm
 
-LIBNAME =	lib/libcorewar_vm.a
+LIBNAME =	lib/vm/libcorewar_vm.a
 
-LIBMAKE =	make -C lib/vm/
+LIBMAKE =	make -C lib/vm
 
 LDFLAGS	= 	$(LIBS)
 
 FLAGS	= 	#-W -Wall-ansi -pedantic
 
-INCLUDE	= 	-I./includes/
+INCLUDE	= 	-I./includes/ -I./lib/vm/includes/
 
 CFLAGS	= 	$(INCLUDE) $(FLAGS)
 
@@ -76,6 +76,7 @@ clean:
 
 fclean:		clean
 	 	$(RM) $(DIR)$(NAME)
+		$(LIBMAKE) fclean
 
 re:		fclean all
 

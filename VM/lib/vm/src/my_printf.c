@@ -5,13 +5,12 @@
 ** Login   <monge_p@epitech.net>
 **
 ** Started on  Tue Nov 11 12:04:21 2014 Pierre Monge
-** Last update Mon Mar 16 11:29:14 2015 Monge Pierre
+** Last update Tue Mar 24 18:11:59 2015 johann gangai
 */
 
 #include <stdlib.h>
 #include <stdarg.h>
 #include "corewar_vm_lib.h"
-#include "my_printf_struct.h"
 
 int		cmp_tab_func(char *formatage, char *option_func,
 			     option *option, int i, va_list ap)
