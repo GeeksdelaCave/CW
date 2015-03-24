@@ -5,7 +5,7 @@
 ## Login   <mongep@epitech.net>
 ## 
 ## Started on  Mon Mar 16 11:08:27 2015 Monge Pierre
-## Last update Tue Mar 24 18:18:28 2015 johann gangai
+## Last update Tue Mar 24 18:35:14 2015 johann gangai
 ##
 
 SRC_INI	= 	vm_main.c		\
@@ -48,7 +48,7 @@ LIBS	= 	-L./lib/vm -lcorewar_vm
 
 LIBNAME =	lib/vm/libcorewar_vm.a
 
-LIBMAKE =	make -C lib/vm
+LIBMAKE =	make -C lib/vm/
 
 LDFLAGS	= 	$(LIBS)
 
@@ -64,19 +64,19 @@ CC	= 	gcc
 
 
 $(NAME):	$(OBJ)
-		$(CC) -o $(NAME) $(OBJ) $(LDFLAGS) $(CFLAGS)
+		$(CC) $(OBJ) -o $(NAME) $(LDFLAGS) $(CFLAGS)
+
+all:		$(LIBNAME) $(NAME)
 
 $(LIBNAME):
 		$(LIBMAKE)
 
-all: 	 	$(LIBNAME) $(NAME)
-
 clean:
 	 	$(RM) $(OBJ)
+		$(LIBMAKE) clean
 
 fclean:		clean
-	 	$(RM) $(DIR)$(NAME)
-		$(LIBMAKE) fclean
+	 	$(RM) $(NAME)
 
 re:		fclean all
 
