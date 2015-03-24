@@ -5,7 +5,7 @@
 ** Login   <mongep@epitech.net>
 **
 ** Started on  Wed Mar 18 11:14:24 2015 Monge Pierre
-** Last update Wed Mar 18 17:54:10 2015 Monge Pierre
+** Last update Tue Mar 24 11:08:07 2015 Monge Pierre
 */
 
 #include			"corewar_vm.h"
@@ -21,8 +21,12 @@ int				vm_extract_data_file(t_champ *champ, char *name,
   if (!(champ->data = malloc(sizeof(char) * len + 1)))
     return (-1);
   ret = read(fd, champ->data, len);
-  champ->data[ret] = '\0';
+  champ->data[ret] = -1;
   close(fd);
+
+  int try = 0;
+  while (champ->data[try] != -1)
+    my_printf("%i ", champ->data[try++]);
   return (0);
 }
 
@@ -36,7 +40,7 @@ int				vm_len_data_file(char *name)
   len = 0;
   ret = 1;
   if ((fd = open(name, O_RDONLY)) < 0)
-    return (-1);
+    return (vm_error("corewar : almost one champ does'nt exist\n"));
   while (ret > 0)
     {
       ret = read(fd, buf, 1);

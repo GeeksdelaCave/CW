@@ -5,7 +5,7 @@
 ** Login   <mongep@epitech.net>
 **
 ** Started on  Mon Mar 16 14:13:39 2015 Monge Pierre
-** Last update Thu Mar 19 11:03:06 2015 Monge Pierre
+** Last update Tue Mar 24 10:55:01 2015 Monge Pierre
 */
 
 #include			"corewar_vm.h"
@@ -25,6 +25,7 @@ int				vm_instruction_live(t_vm *vm, t_champ *champ)
       champ->live_before_die = CYCLE_TO_DIE - ((vm->live_done % NBR_LIVE)
 					       * CYCLE_DELTA);
       champ->delay = 10;
+      my_printf("champ %s is alive !! :)\n", champ->name);
     }
   return (0);
 }
